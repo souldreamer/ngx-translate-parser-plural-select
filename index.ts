@@ -70,14 +70,14 @@ const evaluateI18NString = (str: string, variables: {[varName: string]: string},
 					: [...(numValue >= 10 && numValue < 20) ? ['many'] : lastDigit[numValue % 10] || ['many'], 'other']
 						.filter(key => mapper.hasOwnProperty(key)).map(key => mapper[key])[0] || '';
 			}
-			return mapper['other'] || '';
+			return mapper['other'] == null ? '' : mapper['other'];
 		},
 		select: (value: string, [parameter]: string[]) => {
 			const parsedParameter = parseI18NParameter(parameter);
 			const options = parsedParameter.literals.map(literal => literal.trim()).slice(0, parsedParameter.literals.length - 1);
 			const values = parsedParameter.variables.map(variable => evaluateI18NString(variable.name, variables, getValue));
 			const mapper: {[option: string]: string} = options.reduce((map, option, index) => ({...map, [option.trim()]: values[index]}), {});
-			return mapper[value] || '';
+			return mapper[value] == null ? '' : mapper[value];
 		}
 	}, getValue);
 
@@ -112,7 +112,7 @@ export class TranslateICUParser {
 		if (typeof expr === 'function') {
 			return expr(params);
 		}
-		return evaluateI18NString(expr, params, this.getValue.bind(this));
+		return evaluateI18NString(expr, params, (varName: string) => this.getValue(params, varName));
 	}
 	
 	getValue(target: any, key: string): any {
@@ -129,7 +129,6 @@ export class TranslateICUParser {
 				key += '.';
 			}
 		} while(keys.length);
-		
 		return target;
 	}
 }
