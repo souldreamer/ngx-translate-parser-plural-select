@@ -116,7 +116,7 @@ export class TranslateICUParser {
 	}
 	
 	getValue(target: any, key: string): any {
-		let keys = key.split('.');
+		let keys = key && key.split('.') || [];
 		key = '';
 		do {
 			key += keys.shift();
