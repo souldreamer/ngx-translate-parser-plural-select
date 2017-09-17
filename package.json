@@ -1,0 +1,31 @@
+{
+	"name": "ngx-translate-parser-plural-select",
+	"version": "1.0.0",
+	"description": "ngx-translate parser that supports pluralization and select (a la Angular's i18n module)",
+	"main": "dist/ngx-translate-parser-plural-select.js",
+	"types": "dist/index.d.ts",
+	"author": "Ionut Costica",
+	"license": "MIT",
+	"keywords": [
+		"ngx-translate",
+		"parser",
+		"ngx-translate parser",
+		"ICU",
+		"pluralization",
+		"plural",
+		"select",
+		"i18n",
+		"angular"
+	],
+	"dependencies": {
+		"string-template-parser": "^1.1.0",
+		"@types/node": "^8.0.28",
+		"ts-loader": "^2.3.7",
+		"typescript": "^2.5.2",
+		"webpack": "^3.6.0",
+		"webpack-node-externals": "^1.6.0"
+	},
+	"scripts": {
+		"prepare": "webpack -p"
+	}
+}

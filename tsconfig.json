@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		"module": "commonjs",
+		"outDir": "dist",
+		"sourceMap": true,
+		"moduleResolution": "node",
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"declaration": true,
+		"declarationDir": ".",
+		"lib": [
+			"es5",
+			"es6",
+			"dom"
+		]
+	},
+	"files": [
+		"index.ts"
+	]
+}
