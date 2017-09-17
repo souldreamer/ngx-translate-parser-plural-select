@@ -36,3 +36,11 @@ And even more complex usages:
     "COMPLEX": "{count, plural, =0 { nadie } =1 {{gender, select, m {un hombre} f {una mujer}}} other {{{heroes.length}} {gender, select, m {hombres} f {mujeres}}}}"
 }
 ```
+
+## Notes
+Plural supports (first rule matching the value will be applied):
+* `=value` &mdash; matches exact value (e.g. `=0`, `=1`)
+* `zero`, `one`, `two`... &mdash; matches values ending in 0, 1, 2, ... that are not between 10 and 19 (inclusive)
+* `few` &mdash; matches 2, 3, and 4
+* `many` &mdash; matches any value greater than 4 and any non-integer value
+* `other` &mdash; matches any value
