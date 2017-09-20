@@ -2,8 +2,7 @@ var path = require('path');
 var nodeExternals = require('webpack-node-externals');
 
 var libraryName = 'ngx-translate-parser-plural-select';
-var outputFile = libraryName + '.js';
-
+var outputFile = 'index.js';
 
 var config = {
 	entry: [
