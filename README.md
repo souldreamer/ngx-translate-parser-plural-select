@@ -47,7 +47,7 @@ Plural supports (first rule matching the value will be applied):
 
 ## Custom pipes [`v1.1+`]
 If you want to define your own pipes to use as `{variable, *pipe_name*, *pipe_options*}`, you can use a factory to
-create the `TranslateICUParser`, the class taking an optional parameter consisting of a dictionary of custom pipes.
+create the **`TranslateICUCustomParser`**, the class taking a parameter consisting of a dictionary of custom pipes.
 
 ##### Example
 ```typescript
@@ -75,7 +75,7 @@ const CUSTOM_PIPES = {
 };
 
 export function createParserFactory() {
-	return new TranslateICUParser(CUSTOM_PIPES);
+	return new TranslateICUCustomParser(CUSTOM_PIPES);
 }
 ```
 

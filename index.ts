@@ -1,6 +1,5 @@
 import { parseStringTemplateGenerator, evaluateParsedString, PipeFunction } from 'string-template-parser';
 import 'core-js/es7/object';
-import { Injectable, Optional } from './di';
 
 const QUOTED_STRING_TEST = (remainingString: string) => remainingString.charAt(0) === '{';
 const QUOTED_STRING_GET_AND_ADVANCE = (remainingString: string, advance: (length: number) => void) => {
@@ -154,13 +153,11 @@ export interface ICUPipeFunction {
 	(value: any, options: string[], parameters: string[]): string;
 }
 
-@Injectable()
-export class TranslateICUParser {
+export class TranslateICUCustomParser {
 	private pipeEntries: [string, ICUPipeFunction][] = [];
 	
-	constructor();
-	constructor(private additionalPipes: {[pipeName: string]: ICUPipeFunction} = {}) {
-		this.pipeEntries = Object.entries({...additionalPipes, ...I18N_PIPES});
+	constructor(private additionalPipes?: {[pipeName: string]: ICUPipeFunction}) {
+		this.pipeEntries = Object.entries({...additionalPipes || {}, ...I18N_PIPES});
 	}
 	
 	private getPipes(
@@ -205,6 +202,14 @@ export class TranslateICUParser {
 		return target;
 	}
 }
+
+export class TranslateICUParser extends TranslateICUCustomParser {
+	constructor() {
+		super({});
+	}
+}
+
+// TODO: make these actual tests
 
 // const parser = new TranslateICUParser({
 // 	'?': (value: any, parameters: string[], options: string[]) => {
