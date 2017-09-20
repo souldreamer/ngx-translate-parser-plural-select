@@ -1,6 +1,6 @@
 {
 	"name": "ngx-translate-parser-plural-select",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"description": "ngx-translate parser that supports pluralization and select (a la Angular's i18n module)",
 	"repository": "https://github.com/souldreamer/ngx-translate-parser-plural-select.git",
 	"main": "dist/index.js",
