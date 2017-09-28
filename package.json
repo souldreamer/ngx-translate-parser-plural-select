@@ -1,6 +1,6 @@
 {
 	"name": "ngx-translate-parser-plural-select",
-	"version": "1.1.2",
+	"version": "1.1.3",
 	"description": "ngx-translate parser that supports pluralization and select (a la Angular's i18n module)",
 	"repository": "https://github.com/souldreamer/ngx-translate-parser-plural-select.git",
 	"main": "dist/index.js",
@@ -18,19 +18,19 @@
 		"i18n",
 		"angular"
 	],
-	"dependencies": {
-		"@types/node": "^8.0.28",
-		"core-js": "^2.5.1",
-		"string-template-parser": "^1.2.5",
-		"ts-loader": "^2.3.7",
-		"typescript": "^2.5.2",
-		"webpack": "^3.6.0",
-		"webpack-node-externals": "^1.6.0"
-	},
 	"scripts": {
 		"prepare": "webpack -p"
 	},
+	"dependencies": {
+		"core-js": "^2.5.1",
+		"string-template-parser": "^1.2.5"
+	},
 	"devDependencies": {
-		"@types/core-js": "^0.9.43"
+		"@types/core-js": "^0.9.43",
+		"@types/node": "^8.0.28",
+		"ts-loader": "^2.3.7",
+		"typescript": "^2.5.2",
+		"webpack": "^3.0.0",
+		"webpack-node-externals": "^1.6.0"
 	}
 }
