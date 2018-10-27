@@ -199,7 +199,7 @@ export class TranslateICUCustomParser {
 				key += '.';
 			}
 		} while(keys.length);
-		return target || key;
+        return target !== undefined ? target : key;
 	}
 }
 
